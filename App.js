@@ -17,11 +17,10 @@ export default class App extends Component {
     const buggy = String(a) === String(a.reverse());
 
     if (Platform.OS === "ios") {
-      const majorVersionIOS = parseInt(Platform.Version, 10);
       return (
         <View style={styles.container}>
           <Text style={styles.welcome}>
-            You are running iOS {majorVersionIOS}
+            You are running iOS {Platform.Version}
           </Text>
           <Text
             style={[styles.instructions, { color: buggy ? "red" : "green" }]}
@@ -37,7 +36,9 @@ export default class App extends Component {
     } else {
       return (
         <View style={styles.container}>
-          <Text style={styles.welcome}>This bug only exists on iOS 12</Text>
+          <Text style={styles.welcome}>
+            This bug only exists in iOS 12.0. You are running {Platform.OS}
+          </Text>
         </View>
       );
     }
