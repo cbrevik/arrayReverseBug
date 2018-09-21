@@ -14,7 +14,9 @@ const isDebuggingEnabled = typeof atob !== "undefined";
 export default class App extends Component {
   render() {
     const a = [1, 2];
-    const buggy = String(a) === String(a.reverse());
+    const aString = String(a);
+    const aReverseString = String(a.reverse());
+    const buggy = aString === aReverseString;
 
     if (Platform.OS === "ios") {
       return (
@@ -22,8 +24,25 @@ export default class App extends Component {
           <Text style={styles.welcome}>
             You are running iOS {Platform.Version}
           </Text>
+          <Text style={{ marginVertical: 10 }}>
+            <Text style={styles.variable}>arr</Text> should not equal{" "}
+            <Text style={styles.variable}>arr.reverse()</Text>:
+          </Text>
+          <View style={{ flexDirection: "row" }}>
+            <View style={{ flex: 0.5, alignItems: "center" }}>
+              <Text style={styles.variable}>arr</Text>
+              <Text>[{aString}]</Text>
+            </View>
+            <View style={{ flex: 0.5, alignItems: "center" }}>
+              <Text style={styles.variable}>arr.reverse()</Text>
+              <Text>[{aReverseString}]</Text>
+            </View>
+          </View>
           <Text
-            style={[styles.instructions, { color: buggy ? "red" : "green" }]}
+            style={[
+              styles.instructions,
+              { color: buggy ? "red" : "green", marginVertical: 10 }
+            ]}
           >
             {buggy
               ? "You have the Array.reverse-bug"
@@ -61,5 +80,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#333333",
     marginBottom: 5
+  },
+  variable: {
+    fontWeight: "bold"
   }
 });
