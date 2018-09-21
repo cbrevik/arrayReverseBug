@@ -1,0 +1,3 @@
+rootProject.name = 'arrayReverseBug'
+
+include ':app'
