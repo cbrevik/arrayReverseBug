@@ -1,6 +1,6 @@
 /** @format */
 // import { Platform } from "react-native";
-// if (parseInt(Platform.Version, 10) === 12) {
+// if (Platform.Version === "12.0") {
 //   require("array-reverse-polyfill");
 // }
 import { AppRegistry } from "react-native";
