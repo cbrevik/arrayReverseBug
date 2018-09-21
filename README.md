@@ -11,6 +11,19 @@ var a = [1, 2];
 return String(a) === String(a.reverse());
 ```
 
+# Using this example
+
+If you have Xcode + React Native dependencies installed, from terminal run:
+
+```shell
+git clone git@github.com:cbrevik/arrayReverseBug.git
+cd arrayReverseBug
+yarn install
+react-native run-ios --device "The name of your iPhone with iOS 12"
+```
+
+This example will also work using iOS simulator if you have Xcode 10+.
+
 # Screenshots
 
 If your device/simulator is running iOS 12, the following should be displayed:
