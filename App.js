@@ -8,6 +8,9 @@
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
 
+// Better check for remote debugger: https://stackoverflow.com/a/42839384/5703116
+const isDebuggingEnabled = typeof atob !== "undefined";
+
 export default class App extends Component {
   render() {
     const a = [1, 2];
@@ -25,7 +28,7 @@ export default class App extends Component {
           >
             {buggy
               ? "You have the Array.reverse-bug"
-              : __DEV__
+              : isDebuggingEnabled
                 ? "The RN-debugger uses Chrome, which does not experience the bug. Do not run with the remote debugger attached."
                 : "You do not have the bug with this iOS-version"}
           </Text>
