@@ -41,7 +41,7 @@ export default class App extends Component {
           <Text
             style={[
               styles.instructions,
-              { color: buggy ? "red" : "green", marginVertical: 10 }
+              { color: buggy ? "red" : "green", margin: 10 }
             ]}
           >
             {buggy
